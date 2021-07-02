@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const pack = require("./utils/generateMarkdown.js");
+const utils = require("./utils/generateMarkdown.js");
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -996,70 +996,14 @@ Public License instead of this License.  But first, please read
 inquirer
 .prompt(questions)
 .then((data)=> {
-    var finalDoc = ""
-    finalDoc += getTitle(data);
-    finalDoc += getDescription(data);
-    finalDoc += generateTOC(data);
-    finalDoc += getInstallation(data);
-    pack.generateMarkdown(data)
-    console.log(data);
-    fs.writeFile("READme.md", pack.generateMarkdown(data), function(err){err?console.log(err):console.log("Sucess!")});
+    var finalDoc = "";
+    finalDoc += utils.renderLicenseBadge(data.license)
+    finalDoc += utils.generateMarkdown(data)
+    fs.writeFile("READme.md", finalDoc, function(err){err?console.log(err):console.log("READme.md sucessfully created!")});
 })
-const getTitle = (data) => {
-return `
-# ${data.title}`
-}
-const getDescription =(data)=>{
-    return `
-## Description
-${data.description}`
-}
-const generateTOC = (data)=> {
-  if  (data.tableOfContents) { 
-      const toc = `
-## Table of Contents
-
-- [Description](#description)
-- [Installation](#installation)
-- [License](#license)
-- [Contribution](#contribution)
-- [Tests](#test)
-- [Questions](#questions)
-` ;
-return toc; 
-
-}}
-const getInstallation = (data)=> {
-    return `
-## Installation
-
-${data.installation}`
-}
-
-// TODO: Create a function to write README file
-function writeToFile(filename, data) {
-    fs.writeFile(filename, JSON.stringify(data), (err) =>
-      err ? console.log(err) : console.log('Success!')
-    );
-}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
 
 
-//title = title of readme
 
-//Description = input
-//Table of Contents
-    // links to title, description, installation, usage, license, contributing, tests, questions
-//Installation = input
-//Usage =input
-//License = list of options
-//Contributing = input
-//Tests = input
-//Questions
-    //enter github name display a link
-    //enter email with instructions if there are additional questions
+
+
+

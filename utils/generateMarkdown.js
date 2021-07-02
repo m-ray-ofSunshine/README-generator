@@ -1,6 +1,16 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license = "MIT"){
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+  } else if(license === "Apache"){
+    return `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+  } else if (license === "Unlicensed"){
+    return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
+  }else if(license === "GNU GPLv3") {
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+  }
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -26,8 +36,8 @@ function generateMarkdown(data) {
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
-- [Contribution](#contribution)
-- [Tests](#test)
+- [Contributing](#contributing)
+- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -45,6 +55,16 @@ ${data.license}
 ## Contributing
 
 ${data.contribute}
+
+## Tests
+
+${data.tests}
+
+## Questions
+
+If you have any questions you can find me on Git hub at [${data.github}](https://github.com/${data.github})
+
+You can also email me at ${data.email}
 `;
   
 } else {
@@ -65,7 +85,7 @@ ${data.usage}
 
 ## License
 
-${data.choices.value}
+${data.license}
 
 ## Contributing
 
@@ -77,7 +97,7 @@ ${data.tests}
 
 ## Questions
 
-If you have any questions you can find me on Git hub at ${data.github}
+If you have any questions you can find me on Git hub at [${data.github}](https://github.com/${data.github})
 
 You can also email me at ${data.email}
 `;
@@ -86,6 +106,8 @@ You can also email me at ${data.email}
 };
 
 
-module.exports ={
- generateMarkdown,
-}  
+module.exports = {
+  generateMarkdown,
+  renderLicenseBadge
+}
+ 
