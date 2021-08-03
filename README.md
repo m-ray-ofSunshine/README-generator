@@ -23,7 +23,7 @@ npm install
 
 Type node index.js and answer the prompts. Your READme.md file will be generated automatically into the repo you are in.
 
-   [Link to video of usage](https://drive.google.com/file/d/1GjtlFClpEu6rEMbGDQpiEHt6fGJd0CuH/view)
+   [Link to video of usage](https://drive.google.com/file/d/1WuzkqdZhUyDMX0IFsnchtKfBfkQ4CSXq/view?usp=sharing)
 
 
 ## Tests

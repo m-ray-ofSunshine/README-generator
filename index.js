@@ -999,7 +999,7 @@ inquirer
     var finalDoc = "";
     finalDoc += utils.renderLicenseBadge(data.license)
     finalDoc += utils.generateMarkdown(data)
-    fs.writeFile("READme.md", finalDoc, function(err){err?console.log(err):console.log("READme.md sucessfully created!")});
+    fs.writeFile("sample-READme.md", finalDoc, function(err){err?console.log(err):console.log("READme.md sucessfully created!")});
 })
 
 
